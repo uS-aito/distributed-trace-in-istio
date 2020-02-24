@@ -1,0 +1,153 @@
+##################################################################################################
+# service 1
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: service1
+  labels:
+    app: service1
+    service: service1
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector:
+    app: service1
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: services-service1
+  labels:
+    account: service1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service1-v1
+  labels:
+    app: service1
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service1
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: service1
+        version: v1
+    spec:
+      serviceAccountName: services-service1
+      containers:
+      - name: service1
+        image: docker.io/h2so40627/service1:v0.5.3
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+---
+##################################################################################################
+# service 2
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: service2
+  labels:
+    app: service2
+    service: service2
+spec:
+  ports:
+  - port: 8081
+    name: http
+  selector:
+    app: service2
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: services-service2
+  labels:
+    account: service2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service2-v1
+  labels:
+    app: service2
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service2
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: service2
+        version: v1
+    spec:
+      serviceAccountName: services-service2
+      containers:
+      - name: service2
+        image: docker.io/h2so40627/service2:v0.3.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8081
+---
+##################################################################################################
+# service 3
+##################################################################################################
+apiVersion: v1
+kind: Service
+metadata:
+  name: service3
+  labels:
+    app: service3
+    service: service3
+spec:
+  ports:
+  - port: 8082
+    name: http
+  selector:
+    app: service3
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: services-service3
+  labels:
+    account: service3
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service3-v1
+  labels:
+    app: service3
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service3
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: service3
+        version: v1
+    spec:
+      serviceAccountName: services-service3
+      containers:
+      - name: service3
+        image: docker.io/h2so40627/service3:v0.1.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8082
+---
