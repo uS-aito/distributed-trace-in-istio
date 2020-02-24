@@ -5,4 +5,4 @@ WORKDIR /root
 COPY ./src/service2.py service2.py
 RUN ["pip", "install", "flask", "requests"]
 
-CMD ["python", "service2.py", "8080"]
+CMD ["python", "service2.py", "8081"]
