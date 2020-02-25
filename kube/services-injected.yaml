@@ -48,7 +48,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: docker.io/h2so40627/service1:v0.5.3
+      - image: docker.io/h2so40627/service1:v0.6.1
         imagePullPolicy: IfNotPresent
         name: service1
         ports:
@@ -267,7 +267,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: docker.io/h2so40627/service2:v0.3.1
+      - image: docker.io/h2so40627/service2:v0.4.1
         imagePullPolicy: IfNotPresent
         name: service2
         ports:
@@ -486,7 +486,7 @@ spec:
         version: v1
     spec:
       containers:
-      - image: docker.io/h2so40627/service3:v0.1.1
+      - image: docker.io/h2so40627/service3:v0.2
         imagePullPolicy: IfNotPresent
         name: service3
         ports:

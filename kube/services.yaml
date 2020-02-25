@@ -44,7 +44,7 @@ spec:
       serviceAccountName: services-service1
       containers:
       - name: service1
-        image: docker.io/h2so40627/service1:v0.5.3
+        image: docker.io/h2so40627/service1:v0.6.1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
@@ -95,7 +95,7 @@ spec:
       serviceAccountName: services-service2
       containers:
       - name: service2
-        image: docker.io/h2so40627/service2:v0.3.1
+        image: docker.io/h2so40627/service2:v0.4.1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8081
@@ -146,7 +146,7 @@ spec:
       serviceAccountName: services-service3
       containers:
       - name: service3
-        image: docker.io/h2so40627/service3:v0.1.1
+        image: docker.io/h2so40627/service3:v0.2
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8082
