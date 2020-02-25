@@ -5,6 +5,7 @@ import requests
 import socket
 import sys
 import logging
+import time
 
 app = Flask(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
@@ -52,6 +53,8 @@ def trace(service_number):
         # 自分が送信するヘッダをログに保存
         logging.info("Sending header is below.")
         logging.info(str(headers))
+
+        time.sleep(3)
 
         return "Hello, world!"
     else:

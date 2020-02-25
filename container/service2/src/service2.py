@@ -5,6 +5,7 @@ import requests
 import socket
 import sys
 import logging
+import time
 
 app = Flask(__name__)
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
@@ -53,7 +54,9 @@ def trace(service_number):
         logging.info("Sending header is below.")
         logging.info(str(headers))
 
-        res = requests.get("http://service3:8082/trace/3", headers=headers, timeout=3.0)
+        time.sleep(2)
+
+        res = requests.get("http://service3:8082/trace/3", headers=headers, timeout=10.0)
         if res.status_code == 200:
             return res.text
     else:
